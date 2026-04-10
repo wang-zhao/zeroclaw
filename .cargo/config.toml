@@ -1,3 +1,18 @@
+# Use Chinese mirror for faster downloads
+[source.crates-io]
+replace-with = "rsproxy-sparse"
+
+[source.rsproxy-sparse]
+registry = "sparse+https://rsproxy.cn/index/"
+
+[registries.rsproxy]
+index = "https://rsproxy.cn/crates.io-index"
+
+[net]
+retry = 10
+git-fetch-with-cli = true
+
+
 [target.x86_64-unknown-linux-musl]
 rustflags = ["-C", "link-arg=-static"]
 

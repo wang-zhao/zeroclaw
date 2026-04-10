@@ -9,13 +9,27 @@
     }
   ],
   "configurations": [
+    {
+      "type": "python",
+      "request": "launch",
+      "name": "Debug: infoflow-python-plugin (dev)",
+      "program": "scripts/dev.py",
+      "args": [
+        "dev",
+        "--config=env/config.yaml"
+      ],
+      "cwd": "${workspaceFolder}/infoflow-python-plugin",
+      "justMyCode": false
+    },
     // ── Runtime ───────────────────────────────────────────
     {
       "type": "lldb",
       "request": "launch",
       "name": "Debug: Agent",
       "program": "${workspaceFolder}/target/debug/zeroclaw",
-      "args": ["agent"],
+      "args": [
+        "agent"
+      ],
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "Build: Debug"
     },
@@ -24,7 +38,9 @@
       "request": "launch",
       "name": "Debug: Gateway",
       "program": "${workspaceFolder}/target/debug/zeroclaw",
-      "args": ["gateway"],
+      "args": [
+        "gateway"
+      ],
       "cwd": "${workspaceFolder}",
       "env": { "ZEROCLAW_REQUIRE_PAIRING": "false" },
       "preLaunchTask": "Build: Debug"
@@ -34,7 +50,9 @@
       "request": "launch",
       "name": "Debug: Daemon",
       "program": "${workspaceFolder}/target/debug/zeroclaw",
-      "args": ["daemon"],
+      "args": [
+        "daemon"
+      ],
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "Build: Debug"
     },
@@ -43,7 +61,9 @@
       "request": "launch",
       "name": "Debug: Status",
       "program": "${workspaceFolder}/target/debug/zeroclaw",
-      "args": ["status"],
+      "args": [
+        "status"
+      ],
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "Build: Debug"
     },
@@ -52,7 +72,9 @@
       "request": "launch",
       "name": "Debug: Onboard",
       "program": "${workspaceFolder}/target/debug/zeroclaw",
-      "args": ["onboard"],
+      "args": [
+        "onboard"
+      ],
       "cwd": "${workspaceFolder}",
       "preLaunchTask": "Build: Debug"
     },
@@ -70,12 +92,21 @@
       "request": "launch",
       "name": "Debug: Test (by name)",
       "cargo": {
-        "args": ["test", "--no-run", "--lib", "--"],
+        "args": [
+          "test",
+          "--no-run",
+          "--lib",
+          "--"
+        ],
         "filter": {
           "kind": "lib"
         }
       },
-      "args": ["--exact", "${input:testName}", "--nocapture"],
+      "args": [
+        "--exact",
+        "${input:testName}",
+        "--nocapture"
+      ],
       "cwd": "${workspaceFolder}"
     }
   ],

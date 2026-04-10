@@ -18,5 +18,26 @@
   "rust-analyzer.check.extraArgs": ["--all-targets", "--", "-D", "warnings"],
   "window.title": "${activeRepositoryBranchName}",
   "coverage-gutters.coverageFileNames": ["lcov.info"],
-  "git.postCommitCommand": "push"
+  "git.postCommitCommand": "push",
+
+  // Python / basedpyright configuration for multi-root workspace
+  "basedpyright.analysis.extraPaths": [
+    "${workspaceFolder}/python",
+    "${workspaceFolder}/infoflow-python-plugin/src",
+    "${workspaceFolder}/infoflow-python-plugin/scripts"
+  ],
+  "basedpyright.analysis.ignore": [
+    "**/target",
+    "**/.venv"
+  ],
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/python",
+    "${workspaceFolder}/infoflow-python-plugin/src",
+    "${workspaceFolder}/infoflow-python-plugin/scripts"
+  ],
+
+  // Disable Python import sorting
+  "[python]": {
+    "editor.formatOnSave": false
+  }
 }
